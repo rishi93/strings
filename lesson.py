@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 
 path1 = 'Task1/U10S1.TXT'
+path2 = 'Task1/U20S1.TXT'
 
 def create_string(pathname):
     fo = open(pathname)
@@ -13,11 +14,6 @@ def create_string(pathname):
         x_val, y_val, time_val, button_val = line.split(' ')
         x.append(int(x_val))
         y.append(int(y_val))
-
-    '''
-    print(x)
-    print(y)
-    '''
 
     x_symbol = ['-'] * len(x)
     y_symbol = ['-'] * len(y)
@@ -57,11 +53,6 @@ def create_string(pathname):
     if y[len(y) - 1] > y[len(y) - 2]:
         y_symbol[len(y) - 1] = 'd'
 
-    '''
-    print(x_symbol)
-    print(y_symbol)
-    '''
-
     for i in range(0, len(x)):
         if x_symbol[i] == 'a' and y_symbol[i] == 'c':
             merged_symbol[i] = 'e'
@@ -79,23 +70,53 @@ def create_string(pathname):
             merged_symbol[i] = 'c'
         elif x_symbol[i] == '-' and y_symbol[i] == 'd':
             merged_symbol[i] = 'd'
-    '''
-    print(merged_symbol)
-    '''
 
     final_string = ""
 
     for elem in merged_symbol:
         if elem != '-':
             final_string += elem
-    '''
-    print(final_string)
-    '''
+
     return final_string
 
 string1 = create_string(path1)
+string2 = create_string(path2)
 
-print(string1)
+m = len(string1)
+n = len(string2)
+
+'''
+def edit_distance(string1, string2, m, n):
+    if m == 0:
+        return n
+    if n == 0:
+        return m
+    if string1[m - 1] == string2[n - 1]:
+        return edit_distance(string1, string2, m - 1, n - 1) 
+    
+    return 1 + min(edit_distance(string1,string2,m,n-1), edit_distance(string1,string2,m-1,n), edit_distance(string1,string2,m-1,n-1))
+'''
+
+def edit_distance(string1, string2, m, n):
+    dp = [[0 for i in range(0, n + 1)] for j in range(0, m + 1)]
+
+    for i in range(0, m + 1):
+        for j in range(0, n + 1):
+            if i == 0:
+                dp[i][j] = j
+            elif j == 0:
+                dp[i][j] = i
+            elif string1[i - 1] == string2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1]
+            else:
+                # Insert, Remove, Replace
+                dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1])
+    return dp[m][n]
+
+editDistance = edit_distance(string1, string2, m, n)
+final_score = editDistance/(m + n)
+
+print(final_score)
 
 '''
 fig = plt.figure()
