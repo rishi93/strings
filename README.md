@@ -15,11 +15,11 @@ xmax ymax - H
 - lesson.py - The final program that calculates edit distance between two signatures 
 
 Some screenshots:
-All the plots:
+- All the plots:
 ![All the plots](images/all_plots.png)
-Velocity and acceleration
+- Velocity and acceleration:
 ![Velocity and acceleration](images/velocity_acceleration.png)
-Edit distance for genuine input
+- Edit distance for genuine input:
 ![Genuine Output](images/genuine_output.png)
-Edit distance for fraud input
+- Edit distance for fraud input:
 ![Fraud Output](images/fraud_output.png)
