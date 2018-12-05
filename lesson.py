@@ -161,11 +161,3 @@ edit_distance = editDistance(string1, string2, m, n)
 final_score = edit_distance/(m + n)
 
 print("Edit distance: {}".format(final_score))
-
-'''
-fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-ax.plot(x, y, 'bo')
-plt.show()
-plt.close()
-'''
