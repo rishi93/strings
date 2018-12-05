@@ -16,7 +16,10 @@ xmax ymax - H
 
 Some screenshots:
 All the plots:
-![All the plots](all_plots.png)
-![Velocity and acceleration](velocity_acceleration.png)
-![Genuine Output](genuine_output.png)
-![Fraud Output](fraud_output.png)
+![All the plots](images/all_plots.png)
+Velocity and acceleration
+![Velocity and acceleration](images/velocity_acceleration.png)
+Edit distance for genuine input
+![Genuine Output](images/genuine_output.png)
+Edit distance for fraud input
+![Fraud Output](images/fraud_output.png)
