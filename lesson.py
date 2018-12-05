@@ -2,7 +2,7 @@
 from matplotlib import pyplot as plt
 
 path1 = 'Task1/U11S1.TXT'
-path2 = 'Task1/U11S3.TXT'
+path2 = 'Task1/U11S21.TXT'
 
 def create_string(pathname):
     print("Opening the file")
