@@ -1,14 +1,17 @@
+"This program calculates edit distance between two signature files"
 from matplotlib import pyplot as plt
 
 path1 = 'Task1/U10S1.TXT'
-path2 = 'Task1/U20S1.TXT'
+path2 = 'Task1/U10S2.TXT'
 
 def create_string(pathname):
+    print("Opening the file")
     fo = open(pathname)
     lines = fo.readlines()
 
     x, y = [], []
-
+    
+    print("Reading x and y values")
     # Populate the x and y array
     for line in lines[1:]:
         x_val, y_val, time_val, button_val = line.split(' ')
@@ -19,6 +22,7 @@ def create_string(pathname):
     y_symbol = ['-'] * len(y)
     merged_symbol = ['-'] * len(x)
 
+    print("Calculating the string from minimas and maximas")
     if x[0] < x[1]:
         x_symbol[0] = 'a'
     if x[0] > x[1]:
@@ -79,7 +83,9 @@ def create_string(pathname):
 
     return final_string
 
+print("Processing signature file 1...")
 string1 = create_string(path1)
+print("Processing signature file 2...")
 string2 = create_string(path2)
 
 m = len(string1)
@@ -113,10 +119,11 @@ def edit_distance(string1, string2, m, n):
                 dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1])
     return dp[m][n]
 
+print("Calculating edit distance between strings:")
 editDistance = edit_distance(string1, string2, m, n)
 final_score = editDistance/(m + n)
 
-print(final_score)
+print("Edit distance: {}".format(final_score))
 
 '''
 fig = plt.figure()
