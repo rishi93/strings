@@ -88,6 +88,9 @@ string1 = create_string(path1)
 print("Processing signature file 2...")
 string2 = create_string(path2)
 
+print("String representing first file is {}".format(string1))
+print("String representing second file is {}".format(string2))
+
 m = len(string1)
 n = len(string2)
 
@@ -158,6 +161,7 @@ def editDistance(string1, string2, m, n):
 
 print("Calculating edit distance between strings:")
 edit_distance = editDistance(string1, string2, m, n)
+
 final_score = edit_distance/(m + n)
 
 print("Edit distance: {}".format(final_score))
